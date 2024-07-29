@@ -1,17 +1,26 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { categories } from '../config/categories';
 
 const Categories = () => {
+  const [activeIndex, setActiveIndex] = React.useState(0);
   const { t } = useTranslation();
+
+  const handleClickCategories = categoryIndex => {
+    setActiveIndex(categoryIndex);
+  };
   return (
     <div className="categories">
       <ul>
-        <li className="active">{t('categories.all')}</li>
-        <li>{t('categories.meat')}</li>
-        <li>{t('categories.vegetarian')}</li>
-        <li>{t('categories.grill')}</li>
-        <li>{t('categories.spicy')}</li>
-        <li>{t('categories.closed')}</li>
+        {categories.map((category, index) => (
+          <li
+            key={index}
+            onClick={() => handleClickCategories(index)}
+            className={activeIndex === index ? 'active' : ''}
+          >
+            {t(category)}
+          </li>
+        ))}
       </ul>
     </div>
   );
