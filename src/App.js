@@ -4,11 +4,8 @@ import Header from './componets/Header';
 import Categories from './componets/Categories';
 import Sort from './componets/Sort';
 import PizzaBlock from './componets/PizzaBlock';
-import { useTranslation } from 'react-i18next';
 
 function App() {
-  const { t, i18n } = useTranslation();
-
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <div className="wrapper">

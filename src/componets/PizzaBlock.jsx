@@ -1,7 +1,8 @@
-import React from 'react';
+import { useState } from 'react';
 import Currency from './Currency';
 
 const PizzaBlock = ({ title = 'Default Pizza', price = 0 }) => {
+  const [pizzaCount, setPizzaCount] = useState(0);
   return (
     <div className="pizza-block">
       <img
@@ -25,7 +26,10 @@ const PizzaBlock = ({ title = 'Default Pizza', price = 0 }) => {
         <div className="pizza-block__price">
           от {price} <Currency currency="UAH" />
         </div>
-        <div className="button button--outline button--add">
+        <button
+          onClick={() => setPizzaCount(prev => prev + 1)}
+          className="button button--outline button--add"
+        >
           <svg
             width="12"
             height="12"
@@ -39,8 +43,8 @@ const PizzaBlock = ({ title = 'Default Pizza', price = 0 }) => {
             />
           </svg>
           <span>Добавить</span>
-          <i>2</i>
-        </div>
+          <i>{pizzaCount}</i>
+        </button>
       </div>
     </div>
   );
