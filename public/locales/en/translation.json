@@ -1,0 +1,20 @@
+{
+  "header": {
+    "title": "React Pizza",
+    "titleDescr": "The most delicious pizza in the universe"
+  },
+  "categories": {
+    "all": "all",
+    "meat": "Meat",
+    "vegetarian": "Vegetarian",
+    "grill": "Grill",
+    "spicy": "Spicy",
+    "closed": "Closed"
+  },
+  "sort": {
+    "title": "Sort by:",
+    "popularity": "popularity",
+    "price": "price",
+    "alphabet": "alphabetically"
+  }
+}

@@ -2,7 +2,7 @@
 
 .header {
   border-bottom: 1px solid $gray-line;
-  padding: 40px 0;
+  padding: 20px 0;
 
   .container {
     display: flex;
@@ -12,6 +12,8 @@
 
   &__logo {
     display: flex;
+    align-items: center;
+    width: 33%;
 
     img {
       margin-right: 15px;
@@ -28,5 +30,16 @@
     p {
       color: #7b7b7b;
     }
+  }
+  .btn-locale {
+    padding: 4px 12px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #fff;
+  }
+
+  .btn-locale.active {
+    background-color: #b52b2f;
+    color: white;
   }
 }

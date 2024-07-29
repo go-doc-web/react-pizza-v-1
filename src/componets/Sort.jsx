@@ -1,6 +1,7 @@
 import React from 'react';
-
+import { useTranslation } from 'react-i18next';
 const Sort = () => {
+  const { t } = useTranslation();
   return (
     <div className="sort">
       <div className="sort__label">
@@ -16,14 +17,14 @@ const Sort = () => {
             fill="#2C2C2C"
           />
         </svg>
-        <b>Сортировка по:</b>
-        <span>популярности</span>
+        <b>{t('sort.title')}</b>
+        <span>{t('sort.popularity')}</span>
       </div>
       <div className="sort__popup">
         <ul>
-          <li className="active">популярности</li>
-          <li>цене</li>
-          <li>алфавиту</li>
+          <li className="active">{t('sort.popularity')}</li>
+          <li>{t('sort.price')}</li>
+          <li>{t('sort.alphabet')}</li>
         </ul>
       </div>
     </div>

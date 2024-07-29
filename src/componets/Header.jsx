@@ -1,19 +1,51 @@
-import React from 'react';
-
+import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import Currency from './Currency';
+import Logo from '../assets/img/logo_2.svg';
 const Header = () => {
+  const { t, i18n } = useTranslation();
+  const [isActiveUa, setIsActiveUA] = useState(true);
+  const [isActiveEn, setIsActiveEn] = useState(false);
+  const changeLanguage = language => {
+    i18n.changeLanguage(language);
+    setIsActiveUA(prev => !prev);
+    setIsActiveEn(prev => !prev);
+  };
+
+  useEffect(() => {
+    i18n.changeLanguage('ua');
+  }, [i18n]);
+
   return (
     <div className="header">
       <div className="container">
         <div className="header__logo">
-          <img width="38" src="./img/pizza-logo.svg" alt="Pizza logo" />
+          <img width="83" height="83" src={Logo} alt="Pizza logo" />
+
           <div>
-            <h1>React Pizza</h1>
-            <p>самая вкусная пицца во вселенной</p>
+            <h1>{t('header.title')}</h1>
+            <p>{t('header.titleDescr')}</p>
           </div>
+        </div>
+        <div>
+          <button
+            onClick={() => changeLanguage('en')}
+            className={`btn-locale ${isActiveEn ? 'active' : null}`}
+          >
+            en
+          </button>
+          <button
+            onClick={() => changeLanguage('ua')}
+            className={`btn-locale ${isActiveUa ? 'active' : null}`}
+          >
+            ua
+          </button>
         </div>
         <div className="header__cart">
           <a href="/cart.html" className="button button--cart">
-            <span>520 ₽</span>
+            <span>
+              520 <Currency currency="UAH" />
+            </span>
             <div className="button__delimiter"></div>
             <svg
               width="18"
