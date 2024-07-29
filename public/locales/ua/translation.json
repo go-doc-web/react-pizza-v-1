@@ -1,0 +1,20 @@
+{
+  "header": {
+    "title": "React Pizza",
+    "titleDescr": "Найсмачніша піца у всесвіті"
+  },
+  "categories": {
+    "all": "Всі",
+    "meat": "М'ясо",
+    "vegetarian": "Вегетаріанська",
+    "grill": "Гриль",
+    "spicy": "Гострi",
+    "closed": "Закриті"
+  },
+  "sort": {
+    "title": "Сортування за:",
+    "popularity": "популярності",
+    "price": "за алфавітом",
+    "alphabet": "за алфавітом"
+  }
+}
