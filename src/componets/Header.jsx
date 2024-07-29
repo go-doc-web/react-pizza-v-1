@@ -20,7 +20,7 @@ const Header = () => {
     <div className="header">
       <div className="container">
         <div className="header__logo">
-          <img width="83" height="83" src={Logo} alt="Pizza logo" />
+          <img width="73" height="73" src={Logo} alt="Pizza logo" />
 
           <div>
             <h1>{t('header.title')}</h1>
