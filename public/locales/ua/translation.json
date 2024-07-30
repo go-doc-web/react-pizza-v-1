@@ -14,7 +14,13 @@
   "sort": {
     "title": "Сортування за:",
     "popularity": "популярності",
-    "price": "за алфавітом",
+    "price": "за ціною",
     "alphabet": "за алфавітом"
+  },
+  "pizzaCard": {
+    "types": {
+      "thin": "тонке",
+      "traditional": "традиційне"
+    }
   }
 }

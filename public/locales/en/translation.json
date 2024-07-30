@@ -16,5 +16,12 @@
     "popularity": "popularity",
     "price": "price",
     "alphabet": "alphabetically"
+  },
+
+  "pizzaCard": {
+    "types": {
+      "thin": "thin",
+      "traditional": "traditional"
+    }
   }
 }
