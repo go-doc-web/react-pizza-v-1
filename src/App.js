@@ -7,11 +7,13 @@ import Sort from './componets/Sort';
 import PizzaBlock from './componets/PizzaBlock';
 import pizzas from './db.json';
 
+// https://66aced6ef009b9d5c733de24.mockapi.io/items
+
 function App() {
   const { i18n } = useTranslation();
   const getCurrentLanguage = () => i18n.language;
   const currentLanguage = getCurrentLanguage();
-  console.log('getCurrentLanguage', getCurrentLanguage());
+
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <div className="wrapper">
@@ -26,6 +28,7 @@ function App() {
             <div className="content__items">
               {pizzas?.map(pizza => (
                 <PizzaBlock
+                  key={pizza.id}
                   title={currentLanguage === 'ua' ? pizza.nameUa : pizza.nameEn}
                   {...pizza}
                 />

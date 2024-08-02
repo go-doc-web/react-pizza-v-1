@@ -2,6 +2,15 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 const Sort = () => {
   const { t } = useTranslation();
+  const listvalues = ['sort.popularity', 'sort.price', 'sort.alphabet'];
+  const [isOpenPopup, setOpenPopup] = React.useState(false);
+  const [selectedValue, setSaelectedValue] = React.useState(0);
+
+  const handleClickListItem = index => {
+    setSaelectedValue(index);
+    setOpenPopup(false);
+  };
+
   return (
     <div className="sort">
       <div className="sort__label">
@@ -18,15 +27,23 @@ const Sort = () => {
           />
         </svg>
         <b>{t('sort.title')}</b>
-        <span>{t('sort.popularity')}</span>
+        <span onClick={() => setOpenPopup(prev => !prev)}>{t(listvalues[selectedValue])}</span>
       </div>
-      <div className="sort__popup">
-        <ul>
-          <li className="active">{t('sort.popularity')}</li>
-          <li>{t('sort.price')}</li>
-          <li>{t('sort.alphabet')}</li>
-        </ul>
-      </div>
+      {isOpenPopup && (
+        <div className="sort__popup">
+          <ul>
+            {listvalues.map((value, index) => (
+              <li
+                onClick={() => handleClickListItem(index)}
+                key={index}
+                className={selectedValue === index ? 'active' : ''}
+              >
+                {t(value)}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };
