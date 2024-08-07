@@ -1,0 +1,55 @@
+.wrapperSceleton {
+  /* background-color: grey; */
+  width: 280px;
+  height: 459px;
+}
+
+/* .wrapperSceleton:not(:nth-of-type(4n)) {
+  margin-bottom: 65px;
+} */
+.wrapperCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.circle {
+  border-radius: 50%;
+  width: 259px;
+  height: 260px;
+  background-color: #ecebeb;
+  margin: 0 auto;
+}
+
+.title {
+  margin-top: 11px;
+  width: 280px;
+  height: 24px;
+  background-color: #ecebeb;
+}
+
+.descr {
+  margin-top: 22px;
+  width: 280px;
+  height: 85px;
+  background-color: #ecebeb;
+}
+
+.actionBlock {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.price {
+  width: 89px;
+  height: 27px;
+  background-color: #ecebeb;
+}
+
+.btn {
+  width: 155px;
+  height: 40px;
+  background-color: #ecebeb;
+  border-radius: 30px;
+}
