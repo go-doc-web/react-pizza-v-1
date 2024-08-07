@@ -1,3 +1,4 @@
+import React from 'react';
 import { Suspense } from 'react';
 import './scss/app.scss';
 import { useTranslation } from 'react-i18next';
@@ -5,14 +6,38 @@ import Header from './componets/Header';
 import Categories from './componets/Categories';
 import Sort from './componets/Sort';
 import PizzaBlock from './componets/PizzaBlock';
-import pizzas from './db.json';
+import PizzaBlockSeleton from './componets/PizzaBlock/PizzaBlockSeleton';
 
-// https://66aced6ef009b9d5c733de24.mockapi.io/items
+// import pizzas from './db.json';
+
+// http://localhost:4444/pizzas
 
 function App() {
+  const [items, setItems] = React.useState([]);
+  const [isLoading, setIsLoading] = React.useState(false);
+
   const { i18n } = useTranslation();
   const getCurrentLanguage = () => i18n.language;
   const currentLanguage = getCurrentLanguage();
+
+  React.useEffect(() => {
+    setIsLoading(true);
+    fetch('http://localhost:4444/pizzas')
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! Status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then(data => {
+        console.log('data', data);
+        setItems(data.pizzas);
+        setIsLoading(false);
+      })
+      .catch(error => {
+        console.error('Ошибка при загрузке данных:', error);
+      });
+  }, []);
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
@@ -26,13 +51,15 @@ function App() {
             </div>
             <h2 className="content__title">Все пиццы</h2>
             <div className="content__items">
-              {pizzas?.map(pizza => (
-                <PizzaBlock
-                  key={pizza.id}
-                  title={currentLanguage === 'ua' ? pizza.nameUa : pizza.nameEn}
-                  {...pizza}
-                />
-              ))}
+              {isLoading && [...new Array(8)].map((_, index) => <PizzaBlockSeleton key={index} />)}
+              {!isLoading &&
+                items?.map(pizza => (
+                  <PizzaBlock
+                    key={pizza.id}
+                    title={currentLanguage === 'ua' ? pizza.nameUa : pizza.nameEn}
+                    {...pizza}
+                  />
+                ))}
             </div>
           </div>
         </div>
