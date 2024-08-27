@@ -51,12 +51,17 @@ function App() {
             </div>
             <h2 className="content__title">Все пиццы</h2>
             <div className="content__items">
-              {isLoading && [...new Array(8)].map((_, index) => <PizzaBlockSeleton key={index} />)}
+              {isLoading &&
+                [...new Array(8)].map((_, index) => (
+                  <PizzaBlockSeleton key={index} />
+                ))}
               {!isLoading &&
                 items?.map(pizza => (
                   <PizzaBlock
                     key={pizza.id}
-                    title={currentLanguage === 'ua' ? pizza.nameUa : pizza.nameEn}
+                    title={
+                      currentLanguage === 'ua' ? pizza.nameUa : pizza.nameEn
+                    }
                     {...pizza}
                   />
                 ))}
