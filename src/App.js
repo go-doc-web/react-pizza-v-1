@@ -22,7 +22,7 @@ function App() {
 
   React.useEffect(() => {
     setIsLoading(true);
-    fetch('http://localhost:4444/pizzas')
+    fetch('http://localhost:8888/pizzas')
       .then(res => {
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
