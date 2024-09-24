@@ -3,7 +3,13 @@ import { useTranslation } from 'react-i18next';
 import Currency from '../Currency';
 import { pizzaThickness } from '../../config/pizzaThickness';
 
-const PizzaBlock = ({ title = 'Default Pizza', price = 0, imageUrl, sizes, types }) => {
+const PizzaBlock = ({
+  title = 'Default Pizza',
+  price = 0,
+  imageUrl,
+  sizes,
+  types,
+}) => {
   const { t } = useTranslation();
   const [activeSizeIndex, setActiveSizeIndex] = React.useState(0);
   const [activeTypesIndex, setActiveTypesIndex] = React.useState(0);

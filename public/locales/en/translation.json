@@ -23,5 +23,12 @@
       "thin": "thin",
       "traditional": "traditional"
     }
+  },
+  "home": {
+    "title": "All Pizzas"
+  },
+  "notfound": {
+    "title": "Nothing found",
+    "titleDescr": "Unfortunately, this page is missing in our online store."
   }
 }
